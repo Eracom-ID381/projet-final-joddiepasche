@@ -2,7 +2,7 @@ let mobilenet;
 let crocodile;
 
 function modelReady() {
-    console.log('Model is ready!')
+    console.log('Model is ready');
     mobilenet.predict(crocodile, gotResults);
 }
 
@@ -25,6 +25,8 @@ function imageReady() {
 function setup() {
     createCanvas(640, 480);
     crocodile = createImg('../images/crocodile.jpg');
+    crocodile.hide();
     background(0);
+    image(crocodile, 0, 0, width, height);
     mobilenet = ml5.imageClassifier('MobileNet', modelReady);
 }
